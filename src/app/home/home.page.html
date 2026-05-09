@@ -1,7 +1,7 @@
 <ion-header [translucent]="true" color="primary">
   <ion-toolbar color="primary">
     <ion-title>
-      SEARCH
+      G00472920
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,15 +11,17 @@
 
 <ion-content [fullscreen]="true">
 
-  <ion-searchbar placeholder="Movie Name"></ion-searchbar>
-
-  <ion-icon name="heart-outline" size="large"></ion-icon>
+  <ion-searchbar placeholder="Movie Name"></ion-searchbar>  <ion-buttons slot="end">
+    <ion-button>
+      <ion-icon name="heart-outline" size="large"></ion-icon>
+    </ion-button>
+  </ion-buttons>
 
   <h1>Today's Trending Movies</h1>
 
   <div *ngFor="let movie of movies">
     <h2>{{ movie.title }}</h2>
-    <p>{{ movie.overview }}</p>
+    <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}"> <p>{{ movie.overview }}</p>
   </div>
   
 </ion-content>
