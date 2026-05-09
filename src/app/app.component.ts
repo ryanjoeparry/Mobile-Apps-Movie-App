@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet, IonIcon,} from '@ionic/angular/standalone';
+import { IonApp, IonRouterOutlet,} from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { heartOutline, heart, } from 'ionicons/icons';
 
@@ -7,7 +7,7 @@ import { heartOutline, heart, } from 'ionicons/icons';
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
-  imports: [IonApp, IonRouterOutlet, IonIcon,],
+  imports: [IonApp, IonRouterOutlet,],
 })
 export class AppComponent {
   constructor() {addIcons({heartOutline, heart,});}

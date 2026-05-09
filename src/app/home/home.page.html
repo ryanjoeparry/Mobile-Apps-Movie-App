@@ -16,4 +16,10 @@
   <ion-icon name="heart-outline" size="large"></ion-icon>
 
   <h1>Today's Trending Movies</h1>
+
+  <div *ngFor="let movie of movies">
+    <h2>{{ movie.title }}</h2>
+    <p>{{ movie.overview }}</p>
+  </div>
+  
 </ion-content>
