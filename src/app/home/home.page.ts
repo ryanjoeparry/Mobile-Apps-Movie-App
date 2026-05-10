@@ -2,6 +2,7 @@ import { Component, OnInit, } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonListHeader, IonLabel, IonSearchbar, IonIcon, IonButtons, IonButton } from '@ionic/angular/standalone';
 import { MovieService } from '../services/movie';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ import { CommonModule } from '@angular/common';
 export class HomePage {
   movies: any[] = [];
 
-  constructor(private movieService: MovieService) {
+  constructor(private movieService: MovieService, private router: Router) {
     this.movieService.getTrending().subscribe((data: any) => {
       this.movies = data.results;
     });
@@ -29,5 +30,9 @@ export class HomePage {
         this.movies = data.results;
       });
     }
+  }
+
+  goToDetails(movie: any) {
+    this.router.navigate(['/movie-details', movie.id], { state: { movie } });
   }
 }

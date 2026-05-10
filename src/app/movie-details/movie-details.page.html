@@ -5,9 +5,22 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">MovieDetails</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div *ngIf="movie">
+    <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}">
+    <p>{{ movie.overview }}</p>
+  </div>
+
+  <h2>Cast</h2>
+  <div *ngFor="let member of cast">
+    <img src="https://image.tmdb.org/t/p/w500{{ member.profile_path }}" *ngIf="member.profile_path">
+    <p *ngIf="!member.profile_path">No image</p>
+    <p>{{ member.name }} as {{ member.character }}</p>
+  </div>
+
+  <h2>Crew</h2>
+  <div *ngFor="let member of crew">
+    <img src="https://image.tmdb.org/t/p/w500{{ member.profile_path }}" *ngIf="member.profile_path">
+    <p *ngIf="!member.profile_path">No image</p>
+    <p>{{ member.name }} - {{ member.job }}</p>
+  </div>
 </ion-content>
