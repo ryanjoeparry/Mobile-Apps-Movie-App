@@ -7,7 +7,7 @@
       </ion-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button>
+      <ion-button (click)="goToFavourites()">
         <ion-icon name="heart-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -18,6 +18,9 @@
   <div *ngIf="movie">
     <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}">
     <p>{{ movie.overview }}</p>
+    <ion-button (click)="toggleFavourite()">
+      {{ isFavourite ? 'Remove From Favourites' : 'Add To Favourites' }}
+    </ion-button>
   </div>
 
   <h2>Cast</h2>
