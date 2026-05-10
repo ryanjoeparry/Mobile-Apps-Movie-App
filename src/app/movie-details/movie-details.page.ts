@@ -50,6 +50,10 @@ export class MovieDetailsPage implements OnInit {
     }
     this.isFavourite = !this.isFavourite;
   }
+  
+  goToPersonDetails(person: any) {
+    this.router.navigate(['/details', person.id], { state: { person } });
+  }
 
   ngOnInit() {
     this.checkFavourite();

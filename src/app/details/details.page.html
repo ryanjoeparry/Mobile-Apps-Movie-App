@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div *ngIf="person">
+    <img src="https://image.tmdb.org/t/p/w500{{ person.profile_path }}" *ngIf="person.profile_path">
+    <p *ngIf="!person.profile_path">No image</p>
+    <h2>{{ person.name }}</h2>
+    <p *ngIf="person.birthday">DOB: {{ person.birthday }}</p>
+    <p *ngIf="person.deathday">DOD: {{ person.deathday }}</p>
+    <p *ngIf="person.also_known_as?.length > 0">AKA: {{ person.also_known_as.join(', ') }}</p>
+    <p>{{ person.biography }}</p>
+
+    <h2>Other Movies</h2>
+    <div *ngFor="let movie of movies">
+      <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" *ngIf="movie.poster_path">
+      <p>{{ movie.title }}</p>
+    </div>
+  </div>
+</ion-content>

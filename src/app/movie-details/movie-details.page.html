@@ -24,14 +24,14 @@
   </div>
 
   <h2>Cast</h2>
-  <div *ngFor="let member of cast">
+  <div *ngFor="let member of cast" (click)="goToPersonDetails(member)">
     <img src="https://image.tmdb.org/t/p/w500{{ member.profile_path }}" *ngIf="member.profile_path">
     <p *ngIf="!member.profile_path">No image</p>
     <p>{{ member.name }} as {{ member.character }}</p>
   </div>
 
   <h2>Crew</h2>
-  <div *ngFor="let member of crew">
+  <div *ngFor="let member of crew" (click)="goToPersonDetails(member)">
     <img src="https://image.tmdb.org/t/p/w500{{ member.profile_path }}" *ngIf="member.profile_path">
     <p *ngIf="!member.profile_path">No image</p>
     <p>{{ member.name }} - {{ member.job }}</p>

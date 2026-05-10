@@ -20,4 +20,12 @@ export class MovieService {
   getCredits(movieId: number) {
     return this.http.get(`${this.baseUrl}/movie/${movieId}/credits?api_key=${this.apiKey}`);
   }
+
+  getPersonDetails(personId: number) {
+    return this.http.get(`${this.baseUrl}/person/${personId}?api_key=${this.apiKey}`);
+  }
+  
+  getPersonMovies(personId: number) {
+    return this.http.get(`${this.baseUrl}/person/${personId}/movie_credits?api_key=${this.apiKey}`);
+  }
 }
