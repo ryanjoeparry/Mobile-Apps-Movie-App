@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar,IonButtons, IonButton, IonIcon, } from '@ionic/angular/standalone';
 import { MovieService } from '../services/movie';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './movie-details.page.html',
   styleUrls: ['./movie-details.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonButton, IonIcon,]
 })
 export class MovieDetailsPage implements OnInit {
   movie: any;
@@ -22,6 +22,10 @@ export class MovieDetailsPage implements OnInit {
     this.movie = navigation?.extras?.state?.['movie'];
   }
 
+  goHome() {
+    this.router.navigate(['/home']);
+  }
+
   ngOnInit() {
     if (this.movie) {
       this.movieService.getCredits(this.movie.id).subscribe((data: any) => {
@@ -29,6 +33,8 @@ export class MovieDetailsPage implements OnInit {
         this.crew = data.crew;
       });
     }
+
+ 
   }
 
 }
