@@ -13,4 +13,7 @@ export class MovieService {
   getTrending() {
     return this.http.get(`${this.baseUrl}/trending/movie/week?api_key=${this.apiKey}`);
   }
+  searchMovies(query: string) {
+    return this.http.get(`${this.baseUrl}/search/movie?query=${query}&api_key=${this.apiKey}`);
+  }
 }
